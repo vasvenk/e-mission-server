@@ -1,4 +1,5 @@
 # Standard imports
+import logging.config
 import json
 from random import randrange
 from bottle import route, post, get, run, template, static_file, request, app, HTTPError, abort, BaseRequest, JSONPlugin, response
@@ -788,7 +789,7 @@ if __name__ == '__main__':
     except:
         webserver_log_config = json.load(open("conf/log/webserver.conf.sample", "r"))
 
-    logging.config.dictConfig(webserver_log_config)
+    #logging.config.dictConfig(webserver_log_config)
     logging.debug("This should go to the log file")
 
     # We have see the sockets hang in practice. Let's set the socket timeout = 1
